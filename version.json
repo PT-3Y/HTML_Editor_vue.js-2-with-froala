@@ -1,0 +1,10 @@
+{
+        "comment": " Please update this file for any new branch with core libary name - package name and version uploaded to nexus",
+        "name": "froala-editor-QA241122",
+        "version": "4.0.16",
+        "comment-2": "Please specify the maximum allowed deployments per environment",
+        "dev": "1",
+        "qa": "2",
+        "qe": "2",
+        "stg": "1"
+}

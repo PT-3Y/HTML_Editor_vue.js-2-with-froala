@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  ServiceName:
+    restart: unless-stopped
+    image: ImageName
+    container_name: ContainerName
+    pull_policy: always
+    networks:
+      - caddy
+    labels:
+      caddy_0: UrlName
+      caddy_0.reverse_proxy: "{{upstreams PortNum}}"
+      caddy_0.tls.ca: https://acme-staging-v02.api.letsencrypt.org/directory
+
+networks:
+  caddy:
+    external: true

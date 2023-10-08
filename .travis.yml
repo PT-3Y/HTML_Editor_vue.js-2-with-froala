@@ -1,0 +1,33 @@
+git: 
+  depth: false
+  quiet: false
+language: generic
+dist: bionic
+sudo: required  
+branches:
+  only:
+    - /dev*/
+    - /AO-dev*/
+    - /QA*/
+    - /QE*/
+    - /RC*/
+    - /Release-Master*/
+env:
+- SHORT_COMMIT= `git rev-parse --short=7 ${TRAVIS_COMMIT}`
+before_install:
+  - echo $TRAVIS_BRANCH
+  - echo $PWD
+  - echo $TRAVIS_COMMIT
+  - echo $BUILD_REPO_NAME
+jobs:
+  include:
+    if: commit_message =~ /(deploy-yes)/
+    script:
+      - chmod u+x push-image-to-nexus.sh && bash push-image-to-nexus.sh
+      - chmod u+x deploy_sdk.sh && bash deploy_sdk.sh
+notifications:
+  email:
+    recipients:
+      - harasunu.narayan@froala.com
+    on_success: always
+    on_failure: always

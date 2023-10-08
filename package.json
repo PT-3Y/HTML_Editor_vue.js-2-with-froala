@@ -1,0 +1,108 @@
+{
+  "name": "vue-froala-wysiwyg",
+  "version": "4.1.2",
+  "description": "Vue plugin for Froala WYSIWYG HTML rich text editor.",
+  "author": "Froala Labs (https://www.froala.com/)",
+  "license": "https://froala.com/wysiwyg-editor/terms/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/froala/vue-froala-wysiwyg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/froala/vue-froala-wysiwyg/issues"
+  },
+  "keywords": [
+    "vue",
+    "froala",
+    "html",
+    "text",
+    "editor",
+    "wysisyg",
+    "rich editor",
+    "rich text editor",
+    "rte",
+    "javascript"
+  ],
+  "main": "dist/vue-froala.js",
+  "unpkg": "dist/vue-froala.min.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "src",
+    "dist",
+    "es"
+  ],
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "yarn run release && yarn run build:es",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "release": "webpack --progress --hide-modules --config  ./build/webpack.release.js && webpack --progress --hide-modules --config  ./build/webpack.release.min.js",
+    "prepublish": "yarn run build"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs2": "^7.7.7",
+    "babel-runtime": "^6.26.0",
+    "froala-editor": "^4.1.2",
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/helpers": "^7.3.1",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
+    "@vue/compiler-sfc": "3.2",
+    "babel-helpers": "^6.24.1",
+    "babel-loader": "^8.0.5",
+    "connect-history-api-fallback": "^1.1.0",
+    "cross-env": "^5.2.0",
+    "cross-spawn": "^6.0.5",
+    "css-loader": "^3.6.0",
+    "eventsource-polyfill": "^0.9.6",
+    "express": "^4.15.2",
+    "file-loader": "^3.0.1",
+    "function-bind": "^1.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "http-proxy-middleware": "^0.19.1",
+    "inject-loader": "^4.0.1",
+    "isparta-loader": "^2.0.0",
+    "jasmine-core": "^3.3.0",
+    "lolex": "^3.1.0",
+    "mini-css-extract-plugin": "1.6.2",
+    "nightwatch": "^2.6.17",
+    "ora": "^3.1.0",
+    "shelljs": "^0.8.3",
+    "stream-browserify": "^3.0.0",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "url-loader": "^1.1.2",
+    "vue-hot-reload-api": "^2.0.11",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^16.8.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.7.14",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-middleware": "^3.5.2",
+    "webpack-hot-middleware": "^2.17.1",
+    "webpack-merge": "4.2.1",
+    "yarn": "^1.13.0"
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "greenkeeper": {
+    "ignore": [
+      "mini-css-extract-plugin",
+      "karma-webpack",
+      "webpack",
+      "webpack-merge"
+    ]
+  }
+}
